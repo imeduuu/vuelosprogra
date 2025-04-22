@@ -7,6 +7,16 @@ from pydantic import BaseModel
 
 from lista import lista
 from undo import registrar_operacion, deshacer, rehacer
+from typing import List
+
+class VueloOut(BaseModel):
+    id: int
+    codigo: str
+    destino: str
+    prioridad: str
+
+    class Config:
+        orm_mode = True
 
 app = FastAPI()
 
@@ -35,7 +45,7 @@ def crear_vuelo(vuelo: VueloIn, db: Session = Depends(get_db)):
 
     return {"mensaje": "Vuelo creado", "id": nuevo.id}
 
-@app.get("/vuelos/", response_model=list)
+@app.get("/vuelos/", response_model=List[VueloOut])
 def listar_vuelos(db: Session = Depends(get_db)):
     return crud.obtener_vuelos(db)
 
