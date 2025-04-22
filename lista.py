@@ -72,3 +72,17 @@ class ListaDoblementeEnlazada:
             self.ultimo = actual.anterior
         self.size -= 1
         return actual.vuelo
+
+    def buscar_posicion_por_id(self, vuelo_id):
+        actual = self.primero
+        posicion = 0
+
+        while actual:
+            if hasattr(actual.vuelo, 'id') and actual.vuelo.id == vuelo_id:
+                return posicion
+            actual = actual.siguiente
+            posicion += 1
+
+        return None
+
+lista = ListaDoblementeEnlazada()

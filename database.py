@@ -2,7 +2,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import Base
 
-# Base de datos SQLite por defecto
 DATABASE_URL = "sqlite:///./vuelos.db"
 
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})

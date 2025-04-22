@@ -9,4 +9,4 @@ class Vuelo(Base):
     id = Column(Integer, primary_key=True, index=True)
     codigo = Column(String, nullable=False)
     destino = Column(String, nullable=False)
-    prioridad = Column(String, nullable=False)  # "emergencia" o "regular"
+    prioridad = Column(String, nullable=False) 
