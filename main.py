@@ -81,12 +81,12 @@ def eliminar_vuelo(vuelo_id: int, db: Session = Depends(get_db)):
 
     return {"mensaje": "Vuelo eliminado"}
 
-@app.post("/vuelos/undo")
+@app.post("/acciones/undo")
 def endpoint_deshacer():
     resultado = deshacer(lista)
     return {"mensaje": resultado}
 
-@app.post("/vuelos/redo")
+@app.post("/acciones/redo")
 def endpoint_rehacer():
     resultado = rehacer(lista)
     return {"mensaje": resultado}
