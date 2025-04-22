@@ -90,3 +90,12 @@ def endpoint_deshacer():
 def endpoint_rehacer():
     resultado = rehacer(lista)
     return {"mensaje": resultado}
+
+@app.get("/test/vuelos_memoria")
+def vuelos_en_memoria():
+    actual = lista.primero
+    vuelos = []
+    while actual:
+        vuelos.append(actual.vuelo.id)
+        actual = actual.siguiente
+    return vuelos
